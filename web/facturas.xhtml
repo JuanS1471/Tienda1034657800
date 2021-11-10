@@ -19,6 +19,9 @@ and open the template in the editor.
     <h:body>
         <ui:include src="barraMenu.xhtml"></ui:include>
         <h:form id="form1">
+            <div class="p-grid">
+             <div class="p-col-1"></div>
+            <div class="p-col-3">
                         <p:growl id="growlMsg" showDetail="true" ></p:growl>
                         <p:panelGrid columns="2">
                             <p:outputLabel value="Número factura"></p:outputLabel>
@@ -36,6 +39,43 @@ and open the template in the editor.
                             <p:commandButton value="Eliminar" actionListener="#{facturasC.eliminar()}" update="growlMsg"></p:commandButton>
                             <p:commandButton value="Consultar" actionListener="#{facturasC.consultaPrimaria()}" update="growlMsg,form1"></p:commandButton>
                         </p:panelGrid>
+        </div>
+             <div class="p-col-7">
+               
+                 <p:dataTable id="tabla1" var="facturas" value="#{facturasC.numero}" rowKey="#{facturas.numero}" selectionMode="single">
+
+
+
+                        <f:facet name="header">
+                            <div >
+                                Facturas Registradas
+
+                                <div style="float: right">
+                                    <p:commandButton id="toggler" type="button" value="Columns" icon="pi pi-align-justify"/>
+                                    <p:columnToggler datasource="tabla1" trigger="toggler"/>
+                                </div>
+                            </div>
+                        </f:facet>
+
+                        <p:column headerText="Numero de factura">
+                            <h:outputText value="#{facturasC.numero}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Documento Persona">
+                            <h:outputText value="#{facturasC.personasdocumento}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Documento Empleado">
+                            <h:outputText value="#{facturasC.empleadodocumento}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Fecha">
+                            <h:outputText value="#{facturasC.fecha}"></h:outputText>
+                        </p:column>
+                        
+                        
+                    </p:dataTable>
+                
+            </div>
+            <div class="p-col-1"></div>
+        </div>
                     </h:form>
     </h:body>
 </html>
