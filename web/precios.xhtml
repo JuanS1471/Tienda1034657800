@@ -4,13 +4,17 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
 
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <ui:include src="barraMenu.xhtml"></ui:include>
         <h:form id="form1">
+            <div class="p-grid">
+             <div class="p-col-1"></div>
+            <div class="p-col-3">
             <p:growl id="msg1" showDetail="true"></p:growl>
             <p:panelGrid columns="2">
                 <p:outputLabel value="Código de barras" for="cb" ></p:outputLabel>
@@ -29,7 +33,42 @@
                 <p:commandButton value="Eliminar" actionListener="#{preciosC.eliminar()}" update="msg1"></p:commandButton>
                 <p:commandButton value="Consultar" actionListener="#{preciosC.consultaPrimaria()}" update="msg1,form1"></p:commandButton>
             </p:panelGrid>
+            </div>
+             <div class="p-col-7">
+               
+                 <p:dataTable id="tabla1" var="precio" value="#{preciosC.precio}" rowKey="#{precio.cb}" selectionMode="single">
 
+
+
+                        <f:facet name="header">
+                            <div >
+                                Precios Registrados
+
+                                <div style="float: right">
+                                    <p:commandButton id="toggler" type="button" value="Columns" icon="pi pi-align-justify"/>
+                                    <p:columnToggler datasource="tabla1" trigger="toggler"/>
+                                </div>
+                            </div>
+                        </f:facet>
+
+                        <p:column headerText="Codigo de barras">
+                            <h:outputText value="#{preciosC.cb}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Precio">
+                            <h:outputText value="#{preciosC.precio}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Fecha inicial">
+                            <h:outputText value="#{preciosC.fechaIni}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Fecha final">
+                            <h:outputText value="#{preciosC.fechaFin}"></h:outputText>
+                        </p:column>
+
+                    </p:dataTable>
+                
+            </div>
+            <div class="p-col-1"></div>
+        </div>
         </h:form>
 
 
