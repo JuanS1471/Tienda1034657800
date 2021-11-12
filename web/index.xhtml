@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>SoftWash</title>
         <h:outputStylesheet name="css/primeflex.min.css" />
 
     </h:head>
@@ -24,21 +24,24 @@
         <ui:include src="barraMenu.xhtml"></ui:include>
         <br/>
         <div class="p-grid">
-            <div class="p-col"></div>
-            <div class="p-col p-mb-6">
+            
                 <h:form>
-                    <div class="card">
-                        <div class="p-py-2">
-                            <p:commandButton icon="pi pi-minus" onclick="PF('galleriaWidget').prev()" class="ui-button-secondary" />
-                            <p:commandButton icon="pi pi-plus" onclick="PF('galleriaWidget').next()" class="ui-button-secondary p-ml-2" />
-                        </div>
-
-                        <p:galleria value="#{fotosC.fotos}" var="f"  style="max-width: 640px" widgetVar="galleriaWidget" >
-                            <p:graphicImage name="#{f.foto}" alt="#{f.descripcion}" style="width: 100%; display: block;" library="img"  />
-                        </p:galleria>
+                    <div class="p-grid">
+                        <div class="p-col"></div>
+                        <div class="p-col"> <p:graphicImage name="Carro1.png" style="max-width: 640px;" library="img"/></div>
+                        <div class="p-col"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div>
+                        <div class="p-col"></div>
                     </div>
                 </h:form>
-            </div>
+                <h:form>
+                    <div class="p-grid">
+                        <div class="p-col"></div>
+                        <div class="p-col"> <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> </div>
+                        <div class="p-col"> <p:graphicImage name="Carro2.png" style="max-width: 640px;" library="img"/> </div>
+                        <div class="p-col"></div>
+                    </div>
+                </h:form>
+            
             <div class="p-col"></div>
             
         </div>
