@@ -20,7 +20,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class VentasC extends Ventas{
-    List<Ventas> ventas;
+    private List<Ventas> ventas;
             
     @PostConstruct
     public void init(){
@@ -72,5 +72,13 @@ public class VentasC extends Ventas{
         ArrayList<Object> o =new ArrayList<>();
         o.add(this);
         return o;
+    }
+
+    public List<Ventas> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Ventas> ventas) {
+        this.ventas = ventas;
     }
 }

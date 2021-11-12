@@ -29,10 +29,10 @@
                 <p:commandButton value="Eliminar" actionListener="#{productosC.eliminar()}" update="msg1"></p:commandButton>
                 <p:commandButton value="Consultar" actionListener="#{productosC.consultaPrimaria()}" update="msg1, form1"></p:commandButton>
             </p:panelGrid>
-           </>
+            </div>
              <div class="p-col-7">
                
-                 <p:dataTable id="tabla1" var="producto" value="#{productosC.producto}" rowKey="#{producto.cb}" selectionMode="single">
+                 <p:dataTable id="tabla1" var="producto" value="#{productosC.productos}" rowKey="#{producto.cb}" selectionMode="single">
 
 
 

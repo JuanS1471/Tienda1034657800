@@ -23,7 +23,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class ProductosC extends Productos{
-     List<Productos> productos;
+     private List<Productos> productos;
             
     @PostConstruct
     public void init(){
@@ -74,5 +74,13 @@ public class ProductosC extends Productos{
         ArrayList<Object> o =new ArrayList<>();
         o.add(this);
         return o;
+    }
+
+    public List<Productos> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Productos> productos) {
+        this.productos = productos;
     }
 }

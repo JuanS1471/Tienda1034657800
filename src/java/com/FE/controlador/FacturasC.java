@@ -15,12 +15,14 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 @Named
 @RequestScoped
 public class FacturasC extends Facturas{
+    private List<Facturas> facturas;
     public void consultaPrimaria() {
         String sql = "SELECT * FROM Facturas WHERE numero='" + getNumero() + "'";
         System.err.println(sql);
@@ -62,5 +64,13 @@ public class FacturasC extends Facturas{
         ArrayList<Object> o =new ArrayList<>();
         o.add(this);
         return o;
+    }
+
+    public List<Facturas> getFacturas() {
+        return facturas;
+    }
+
+    public void setFacturas(List<Facturas> facturas) {
+        this.facturas = facturas;
     }
 }
