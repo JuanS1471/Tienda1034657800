@@ -34,10 +34,10 @@
                         <p:inputText value="#{personasC.sapellido}" id="sa"></p:inputText>
                         <p:outputLabel value="Email" for="e"></p:outputLabel>
                         <p:inputText value="#{personasC.email}" id="e" type="email"></p:inputText>
-                        <p:commandButton value="Guardar" actionListener="#{personasC.insertar()}" update="msg1,tabla1"></p:commandButton>
-                        <p:commandButton value="Actualizar" actionListener="#{personasC.actualizar()}" update="msg1,tabla1"></p:commandButton>
-                        <p:commandButton value="Eliminar" actionListener="#{personasC.eliminar()}" update="msg1,form1,tabla1"></p:commandButton>
-                        <p:commandButton value="Consultar" actionListener="#{personasC.consultaPrimaria()}" update="msg1,form1,tabla1"></p:commandButton>
+                        <p:commandButton value="Guardar" actionListener="#{personasC.insertar()}" icon = "pi pi-plus" update="msg1,tabla1"></p:commandButton>
+                        <p:commandButton value="Actualizar" actionListener="#{personasC.actualizar()}" styleClass="ui-button-raised ui-button-secondary" icon = "pi pi-upload" update="msg1,tabla1"></p:commandButton>
+                        <p:commandButton value="Eliminar" actionListener="#{personasC.eliminar()}" styleClass="ui-button-raised ui-button-danger" icon = "pi pi-trash" update="msg1,form1,tabla1"></p:commandButton>
+                        <p:commandButton value="Consultar" actionListener="#{personasC.consultaPrimaria()}" styleClass="ui-button-raised ui-button-warning"  icon = "pi pi-search" update="msg1,form1,tabla1"></p:commandButton>
                     </p:panelGrid>
                
             </div>
