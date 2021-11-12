@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -25,7 +27,11 @@ public class EmpleadosC extends Empleados{
             
     @PostConstruct
     public void init(){
-        empleados=new ArrayList<>();
+       llenarTabla();
+    }
+    public void llenarTabla(){
+        empleados =new ArrayList<>();
+        
         String sql = "SELECT * FROM Empleados";
         
         ResultSet r = CRUD.select(sql);
@@ -38,22 +44,64 @@ public class EmpleadosC extends Empleados{
             Msg.error(ex.getMessage());
         }
     }
-    
     public void consultaPrimaria() {
-        String sql="SELECT * FROM Empleados WHERE  documento='"+getDocumento()+"'";
-        ResultSet r= CRUD.select(sql);
+        String sql = "SELECT * FROM Empleados WHERE documento='" + getDocumento() + "'";
+        
+        ResultSet r = CRUD.select(sql);
         try {
-            if(r.next()){
+            if (r.next()) {
                 setClave(r.getString(2));
+                setDocumento(r.getInt(3));
             }else{
-                Msg.ad("El Empleado no está registrado");
+                Msg.ad("El usuario no se encuentra registrado.");
             }
         } catch (SQLException ex) {
             Msg.error(ex.getMessage());
         }
         
     }
-
+    public void consultaClave() {
+        String sql = "SELECT * FROM Empleados WHERE clave='" + getClave()+ "'";
+        
+        ResultSet r = CRUD.select(sql);
+        try {
+            if (r.next()) {
+                setClave(r.getString(2));
+                setDocumento(r.getInt(3));
+            }else{
+                Msg.ad("El usuario no se encuentra registrado.");
+            }
+        } catch (SQLException ex) {
+            Msg.error(ex.getMessage());
+        }
+        
+    }
+    public List<String> listaDocumento(String dato){
+        List<String> listaDocumento=new ArrayList<>();
+        ResultSet r=CRUD.select("SELECT documento FROM Empleados WHERE documento like '"+dato+"%'");
+        try {
+            while(r.next()){
+                listaDocumento.add(r.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonasC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaDocumento;
+    }
+    public List<String> listaClave(String dato){
+        List<String> listaClave=new ArrayList<>();
+        ResultSet r=CRUD.select("SELECT clave FROM Empleados WHERE clave like '"+dato+"%'");
+        try {
+            while(r.next()){
+                listaClave.add(r.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonasC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaClave;
+    }
+    
+    
     public void eliminar() {
         String sql = "DELETE FROM Empleados WHERE documento='"+getDocumento()+"'";
         String m = "Se ha eliminado el Empleados";
