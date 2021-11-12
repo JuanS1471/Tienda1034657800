@@ -28,7 +28,7 @@ import javax.inject.Named;
 @RequestScoped
 public class PreciosC extends Precios {
 
-   
+   private List<Precios> precios;
 
     public void consultaPrimaria() {
         String sql = "SELECT * FROM Precios WHERE cb='" + getCb()+ "' and fechaini='"+getFechaIni()+"'";
@@ -71,5 +71,13 @@ public class PreciosC extends Precios {
         ArrayList<Object> o = new ArrayList<>();
         o.add(this);
         return o;
+    }
+
+    public List<Precios> getPrecios() {
+        return precios;
+    }
+
+    public void setPrecios(List<Precios> precios) {
+        this.precios = precios;
     }
 }

@@ -36,7 +36,7 @@
             </div>
              <div class="p-col-7">
                
-                 <p:dataTable id="tabla1" var="precio" value="#{preciosC.precio}" rowKey="#{precio.cb}" selectionMode="single">
+                 <p:dataTable id="tabla1" var="precio" value="#{preciosC.precios}" rowKey="#{precio.cb}" selectionMode="single">
 
 
 
@@ -52,16 +52,16 @@
                         </f:facet>
 
                         <p:column headerText="Codigo de barras">
-                            <h:outputText value="#{preciosC.cb}"></h:outputText>
+                            <h:outputText value="#{precio.cb}"></h:outputText>
                         </p:column>
                         <p:column headerText="Precio">
-                            <h:outputText value="#{preciosC.precio}"></h:outputText>
+                            <h:outputText value="#{precio.precio}"></h:outputText>
                         </p:column>
                         <p:column headerText="Fecha inicial">
-                            <h:outputText value="#{preciosC.fechaIni}"></h:outputText>
+                            <h:outputText value="#{precio.fechaIni}"></h:outputText>
                         </p:column>
                         <p:column headerText="Fecha final">
-                            <h:outputText value="#{preciosC.fechaFin}"></h:outputText>
+                            <h:outputText value="#{precio.fechaFin}"></h:outputText>
                         </p:column>
 
                     </p:dataTable>
