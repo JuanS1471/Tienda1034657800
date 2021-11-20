@@ -40,7 +40,7 @@ public class PreciosC extends Precios {
         ResultSet r = CRUD.select(sql);
         try {
             while (r.next()) {
-                Precios p = new Precios( r.getString(1), r.getInt(2), r.getInt(3), r.getDouble(4));
+                Precios p = new Precios( r.getString(1), r.getDate(2), r.getDate(3), r.getDouble(4));
                 precios.add(p);
             }
         } catch (SQLException ex) {
@@ -55,7 +55,9 @@ public class PreciosC extends Precios {
         try {
             if (r.next()) {
                 setCb(r.getString(2));
-                setFechaIni(r.getString(sql));
+                setFechaFin(r.getDate(3));
+                setFechaIni(r.getDate(4));
+                setPrecio(r.getString(5));
             }else{
                 Msg.ad("El usuario no se encuentra registrado.");
             }
@@ -70,12 +72,10 @@ public class PreciosC extends Precios {
         ResultSet r = CRUD.select(sql);
         try {
             if (r.next()) {
-                setDocumento(r.getInt(1));
-                setPnombre(r.getString(2));
-                setSnombre(r.getString(3));
-                setPapellido(r.getString(4));
-                setSapellido(r.getString(5));
-                setEmail(r.getString(6));
+                setCb(r.getInt(1));
+                setFechaFin(r.getString(2));
+                setFechaIni(r.getString(3));
+                setPrecio(r.getString(4));
             }else{
                 Msg.ad("El usuario no se encuentra registrado.");
             }
