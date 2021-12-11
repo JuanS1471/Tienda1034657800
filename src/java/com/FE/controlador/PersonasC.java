@@ -37,7 +37,7 @@ public class PersonasC extends Personas {
         ResultSet r = CRUD.select(sql);
         try {
             while (r.next()) {
-                Personas p=new Personas(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5), r.getString(6));
+                Personas p=new Personas(r.getInt(1), r.getString(2), r.getString(3), r.getString(4), r.getString(5), r.getString(6),r.getString(7),r.getString(8),r.getString(9));
                 personas.add(p);
             }
         } catch (SQLException ex) {
@@ -55,6 +55,9 @@ public class PersonasC extends Personas {
                 setPapellido(r.getString(4));
                 setSapellido(r.getString(5));
                 setEmail(r.getString(6));
+                setDirec(r.getString(7));
+                setContra(r.getString(8));
+                setUser(r.getString(9));
             }else{
                 Msg.ad("El usuario no se encuentra registrado.");
             }
@@ -75,6 +78,9 @@ public class PersonasC extends Personas {
                 setPapellido(r.getString(4));
                 setSapellido(r.getString(5));
                 setEmail(r.getString(6));
+                setDirec(r.getString(7));
+                setContra(r.getString(8));
+                setUser(r.getString(9));
             }else{
                 Msg.ad("El usuario no se encuentra registrado.");
             }

@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <body>
+        <h:form>
         <div align="right" class="p-col">
             <div class="grid">
                 <p:commandButton id="basic" type="button" icon="pi pi-user"/>
@@ -23,6 +24,7 @@
                             <p:password id="password" value="#{userLoginView.password}" required="true" label="Contraseña" />
 
                             <f:facet name="footer">
+                                <p:button outcome="Usuario" value="Registrarse" styleClass="ui-button-outlined"></p:button>
                                 <p:commandButton style="float:right" value="Entrar" oncomplete="handleLoginRequest(xhr, status, args)" />
                             </f:facet>  
                         </h:panelGrid>
@@ -31,6 +33,7 @@
 
             </div>
         </div>
+            </h:form>
         <h:form>
             <p:growl id="msg"></p:growl>
 

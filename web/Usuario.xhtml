@@ -10,11 +10,90 @@ and open the template in the editor.
 
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        
-    </body>
+    <h:head>
+        <title>SoftWash</title>
+        <h:outputStylesheet name="css/primeflex.min.css" />
+
+    </h:head>
+    <style type="text/css">
+        .label {
+            width: 20%;
+            padding: 4px;
+        }
+
+        .value {
+            width: 80%;
+            padding: 4px;
+        }
+
+        .grid {
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .outputLabel {
+            font-weight: bold;
+        }
+
+        .grid {
+            width: 33%;
+            padding: 4px;
+        }
+    </style>
+
+    <h:body style="background-color: #f8f9fa;">
+        <div class="p-grid">
+            <div class="p-col"></div>
+            <div class="p-col"></div>
+            <div class="p-col"><p:graphicImage name="Softwash.png" style="max-width: 640px;" library="img"/></div>
+            <div class="p-col"></div>
+            <div class="p-col"></div>
+        </div>
+
+        <ui:include src="barraMenu.xhtml"></ui:include>
+        <br/>
+        <div class="col" align="center">
+            <h:form>
+
+                <p:growl id="growl" sticky="true" showDetail="true"/>
+                <p:card style="width: 24rem; margin-bottom: 2em" >
+                    <h:panelGrid columns="2" columnClasses="label, value">
+
+                        <h:outputText value="Usuario:"/>
+                        <p:inputText value="#{personasC.user}" required="true" label="user"/>
+
+                        <h:outputText value="Primer nombre:"/>
+                        <p:inputText value="#{personasC.pnombre}" required="true" label="Primer nombre"/>
+
+                        <h:outputText value="Segundo nombre:"/>
+                        <p:inputText value="#{personasC.snombre}" required="false" label="Segundo nombre"/>
+
+                        <h:outputText value="Primer apellido:"/>
+                        <p:inputText value="#{personasC.papellido}" required="true" label="Primer apellido"/>
+
+                        <h:outputText value="Segundo apellido:"/>
+                        <p:inputText value="#{personasC.papellido}" required="false" label="Segundo apellido"/>
+
+                        <h:outputText value="Documento:"/>
+                        <p:inputText value="#{personasC.documento}" required="true" label="documento"/>
+
+                        <h:outputText value="Email:"/>
+                        <p:inputText value="#{personasC.email}" required="true" label="Email"/>
+
+                        <h:outputText value="Direccion:"/>
+                        <p:inputText value="#{personasC.direc}" required="false" label="Direccion"/>
+
+                        <h:outputText value="Contraseña:"/>
+                        <p:password id="contra" value="#{personasC.contra}"/>
+
+                        <p:commandButton  value="Registrar" actionListener="#{personasC.insertar()}" style="margin-right: .5em" ></p:commandButton>
+
+                    </h:panelGrid>
+                </p:card>     
+            </h:form>
+        </div>
+    </h:body>
 </html>

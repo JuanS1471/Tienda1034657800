@@ -3,16 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/web/index.xhtml</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/SlidepC.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Fotos.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/VentasC.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Ventas.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Empleados.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Precios.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Facturas.java</file>
-            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Personas.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/ProductosC.java</file>
             <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Productos.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/PersonasC.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/web/index.xhtml</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/util/Conexion.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/web/barraMenu.xhtml</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/controlador/SlidepC.java</file>
+            <file>file:/C:/Users/PC/Documents/GitHub/Tienda1034657800/src/java/com/FE/modelo/Personas.java</file>
         </group>
     </open-files>
 </project-private>
