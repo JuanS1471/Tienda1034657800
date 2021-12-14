@@ -34,26 +34,21 @@
             </div>
         </div>
             </h:form>
+        <div aling="center">
         <h:form>
             <p:growl id="msg"></p:growl>
 
-            <p:menubar>
-                <p:menuitem value="Home" outcome="index"></p:menuitem>
-                <p:submenu label="Gestión">
-                    <p:menuitem value="Personas" outcome="personas"></p:menuitem>
-                    <p:menuitem value="Productos" outcome="productos"></p:menuitem>
-                    <p:menuitem value="Facturas" outcome="facturas"></p:menuitem>
-                    <p:menuitem value="Empleados" outcome="empleados"></p:menuitem>
-                    <p:menuitem value="Precios" outcome="precios"></p:menuitem>
-                    <p:menuitem value="Ventas" outcome="ventas"></p:menuitem>
-                    <p:menuitem value="Fotos"  outcome="fotos"></p:menuitem>
-                </p:submenu>
+            <p:tabMenu activeIndex="#{param.i}" style="float: center">
+                <p:menuitem value="Inicio" outcome="index" icon="pi pi-fw pi-home"><f:param name="i" value="0"/></p:menuitem>
+                <p:menuitem value="Productos" outcome="productos" icon="pi pi-fw pi-shopping-cart"><f:param name="i" value="1"/></p:menuitem>
+                <p:menuitem value="Sobre nosotros" outcome="sobre" icon="pi pi-fw pi-search"><f:param name="i" value="2"/></p:menuitem>
+                <p:menuitem value="Encuentranos" outcome="donde" icon="pi pi-fw pi-map-marker"><f:param name="i" value="3"/></p:menuitem>
 
-            </p:menubar>
+            </p:tabMenu>
 
 
         </h:form>  
-
+    </div>
         <br/>
         <br/>
     </body>

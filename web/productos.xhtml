@@ -2,12 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-  
+
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Productos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet name="css/primeflex.min.css" />
     </h:head>
@@ -20,61 +20,14 @@
             <div class="p-col"></div>
         </div>
         <ui:include src="barraMenu.xhtml"></ui:include>
-    
-        <h:form id="form1">
-            <div class="p-grid">
-             <div class="p-col-1"></div>
-            <div class="p-col-3">
-            <p:growl id="msg1" showDetail="true"></p:growl>
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Código de barras" for="cb" ></p:outputLabel>
-                <p:inputText value="#{productosC.cb}" id="cb"></p:inputText>
-                <p:outputLabel value="Nombre del producto" for="nombre" ></p:outputLabel>
-                <p:inputText value="#{productosC.nombre}" id="nombre"></p:inputText>
-                <p:outputLabel value="Descripción del producto" for="descripcion" ></p:outputLabel>
-                <p:inputText value="#{productosC.descripcion}" id="descripcion"></p:inputText>
-                <p:commandButton value="Guardar" actionListener="#{productosC.insertar()}" icon = "pi pi-plus" update="msg1"></p:commandButton>
-                <p:commandButton value="Actualizar" actionListener="#{productosC.actualizar()}" styleClass="ui-button-raised ui-button-secondary" icon = "pi pi-upload" update="msg1"></p:commandButton>
-                <p:commandButton value="Eliminar" actionListener="#{productosC.eliminar()}" styleClass="ui-button-raised ui-button-danger" icon = "pi pi-trash" update="msg1"></p:commandButton>
-                <p:commandButton value="Consultar" actionListener="#{productosC.consultaPrimaria()}" styleClass="ui-button-raised ui-button-warning"  icon = "pi pi-search" update="msg1, form1"></p:commandButton>
-                
-            </p:panelGrid>
-            </div>
-             <div class="p-col-7">
-               
-                 <p:dataTable id="tabla1" var="producto" value="#{productosC.productos}" rowKey="#{producto.cb}" selectionMode="single">
-
-
-
-                        <f:facet name="header">
-                            <div >
-                                Productos Registrados
-
-                                <div style="float: right">
-                                    <p:commandButton id="toggler" type="button" value="Columns" icon="pi pi-align-justify"/>
-                                    <p:columnToggler datasource="tabla1" trigger="toggler"/>
-                                </div>
-                            </div>
-                        </f:facet>
-
-                        <p:column headerText="Codigo de barras">
-                            <h:outputText value="#{productosC.cb}"></h:outputText>
-                        </p:column>
-                        <p:column headerText="Descripcion">
-                            <h:outputText value="#{productosC.descripcion}"></h:outputText>
-                        </p:column>
-                        <p:column headerText="Nombre">
-                            <h:outputText value="#{productosC.nombre}"></h:outputText>
-                        </p:column>
-                        
-                        
-
-                    </p:dataTable>
-                
-            </div>
-            <div class="p-col-1"></div>
+        <div class="card">
+            <p:imageSwitch effect="fade" id="fadeEffect">
+                <ui:repeat value="#{fotos.images}" var="image" id="fadeEffectImages">
+                    <p:graphicImage name="C:/Users/PC/Documents/GitHub/Tienda1034657800/web/resources/img/#{image}" id="image2"/>
+                </ui:repeat>
+            </p:imageSwitch>
         </div>
-        </h:form>
+
 
     </h:body>
 </html>
