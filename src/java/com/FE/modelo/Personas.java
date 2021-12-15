@@ -7,10 +7,7 @@ package com.FE.modelo;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Jhon Mauricio Moreno
- */
+
 public class Personas implements Serializable {
       private int documento;
       private String pnombre;

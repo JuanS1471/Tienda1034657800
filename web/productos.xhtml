@@ -11,22 +11,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet name="css/primeflex.min.css" />
         <style type="text/css">
-        .product-item .product-item-content {
-            border: 1px solid var(--surface-d);
-            border-radius: 3px;
-            margin: .3rem;
-            text-align: center;
-            padding: 2rem 0;
-        }
+            .product-item .product-item-content {
+                border: 1px solid var(--surface-d);
+                border-radius: 3px;
+                margin: .3rem;
+                text-align: center;
+                padding: 2rem 0;
+            }
 
-        .product-item .product-image {
-            width: 50%;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-        }
-    </style>
+            .product-item .product-image {
+                width: 50%;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+            }
+            body {
+                height: 400px;
+                background-image: url("https://i.imgur.com/n8uEpN6.jpg");
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-position: center center;
+            }
+        </style>
     </h:head>
-    
-    <h:body>
+
+    <h:body >
         <div class="p-grid">
             <div class="p-col"></div>
             <div class="p-col"></div>
@@ -38,40 +45,40 @@
         <ui:include src="barraMenu.xhtml"></ui:include>
         <br/>
         <div class="product card">
-    <h:form>
-        <p:dataScroller value="#{dato.products}" var="product" chunkSize="10">
-            
+            <h:form>
+                <p:dataScroller value="#{dato.products}" var="product" chunkSize="10">
 
-            <f:facet name="loader">
-                <div class="p-text-center">
-                    <p:commandButton type="button" value="More" icon="pi pi-refresh"/>
-                </div>
-            </f:facet>
 
-            <div class="product">
-                <div class="product-list-item p-p-5">
-                    <p:graphicImage name="demo/images/product/#{product.image}"/>
-                    <div class="product-list-detail">
-                        <div class="product-name">#{product.name}</div>
-                        <div class="product-description">#{product.description}</div>
-                        <p:rating readonly="true" value="#{product.rating}"/>
-                        <i class="pi pi-tag product-category-icon"/><span
-                            class="product-category">#{product.category}</span>
+                    <f:facet name="loader">
+                        <div class="p-text-center">
+                            <p:commandButton type="button" value="More" icon="pi pi-refresh"/>
+                        </div>
+                    </f:facet>
+
+                    <div class="product">
+                        <div class="product-list-item p-p-5">
+                            <p:graphicImage name="demo/images/product/#{product.image}"/>
+                            <div class="product-list-detail">
+                                <div class="product-name">#{product.name}</div>
+                                <div class="product-description">#{product.description}</div>
+                                <p:rating readonly="true" value="#{product.rating}"/>
+                                <i class="pi pi-tag product-category-icon"/><span
+                                    class="product-category">#{product.category}</span>
+                            </div>
+                            <div class="product-list-action">
+                                <h:outputText value="#{product.price}" styleClass="product-price">
+                                    <f:convertNumber currencySymbol="$" type="currency"/>
+                                </h:outputText>
+                                <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
+                                                 disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
+                                </p:commandButton>
+                                <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-list-action">
-                        <h:outputText value="#{product.price}" styleClass="product-price">
-                            <f:convertNumber currencySymbol="$" type="currency"/>
-                        </h:outputText>
-                        <p:commandButton value="Add To Cart" icon="pi pi-shopping-cart"
-                                         disabled="#{product.inventoryStatus == 'OUTOFSTOCK'}">
-                        </p:commandButton>
-                        <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
-                    </div>
-                </div>
-            </div>
 
-        </p:dataScroller>
-    </h:form>
-</div>
+                </p:dataScroller>
+            </h:form>
+        </div>
     </h:body>
 </html>
